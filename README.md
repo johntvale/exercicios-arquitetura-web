@@ -9,9 +9,9 @@
 ### Requisitos
 - [x] Acessar todos Autores com método GET na rota "/authors"
 - [x] Acessar um Autor específico com método GET na rota "/authors/:id"
-- [] Criar um Autor com método POST na rota "/authors"
-- [] Editar as informações de um Autor específico com método PUT na rota "/authors/:id"
-- [] Deletar um Autor específico com método DELETE na rota "/authors/:id"
+- [ ] Criar um Autor com método POST na rota "/authors"
+- [ ] Editar as informações de um Autor específico com método PUT na rota "/authors/:id"
+- [ ] Deletar um Autor específico com método DELETE na rota "/authors/:id"
 
 ---
 
