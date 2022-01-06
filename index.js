@@ -1,7 +1,7 @@
 const express = require('express');
-const { controllerGetAllAuthors,
-    controllerGetAuthorById,
-} = require('./controllers/controllerAuthors');
+const {
+    controllerGetAllAuthors,
+    controllerGetAuthorById } = require('./controllers/controllerAuthors');
 const error = require('./middlewares/middlewareError');
 
 const PORT = 3000;
