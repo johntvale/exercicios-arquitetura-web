@@ -7,7 +7,7 @@ const controllerGetAllAuthors = async (_req, res, next) => {
   } catch (error) {
     console.error(error.message);
     return next(error);
-  }  
+  }
 };
 
 const controllerGetAuthorById = async (req, res, next) => {
