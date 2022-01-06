@@ -1,1 +1,1 @@
-# exercicios-arquitetura-web
+# exercicios-arquitetura-web-mysql
