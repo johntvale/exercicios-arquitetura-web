@@ -1,8 +1,12 @@
-const { getAllAuthors, getAuthorById } = require('../services/serviceAuthors');
+const { serviceGetAuthors,
+  serviceGetAuthorById,
+  serviceCreateAuthor,
+  serviceUpdateAuthor,
+  serviceDeleteAuthor } = require('../services/serviceAuthors');
 
-const controllerGetAllAuthors = async (_req, res, next) => {
+const controllerGetAuthors = async (_req, res, next) => {
   try {
-    const authors = await getAllAuthors();
+    const authors = await serviceGetAuthors();
     return res.status(200).json(authors);    
   } catch (error) {
     console.error(error.message);
@@ -10,10 +14,10 @@ const controllerGetAllAuthors = async (_req, res, next) => {
   }
 };
 
-const controllerGetAuthorById = async (req, res, next) => {
+const controllerGetAuthor = async (req, res, next) => {
   const { id } = req.params;
   try {
-    const author = await getAuthorById(id);
+    const author = await serviceGetAuthorById(id);
     return res.status(200).json(author);
   } catch (error) {
     console.error(error.message);
@@ -21,7 +25,44 @@ const controllerGetAuthorById = async (req, res, next) => {
   }
 };
 
+const controllerCreateAuthor = async (req, res, next) => {
+  const { first_name, middle_name, last_name } = req.body;
+  try {
+    const author = await serviceCreateAuthor(first_name, middle_name, last_name);
+    return res.status(201).json(author);
+  } catch (error) {
+    console.error(error.message);
+    return next(error);
+  }
+};
+
+const controllerUpdateAuthor = async (req, res, next) => {
+  const { id } = req.params;
+  const { first_name, middle_name, last_name } = req.body;
+  try {
+    const response = await serviceUpdateAuthor(id, first_name, middle_name, last_name);
+    return res.status(201).json(response);
+  } catch (error) {
+    console.error(error.message);
+    return next(error);    
+  }
+};
+
+const controllerDeleteAuthor = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const response = await serviceDeleteAuthor(id);
+    return res.status(201).json(response);
+  } catch (error) {
+    console.error(error.message);
+    return next(error);    
+  }
+};
+
 module.exports = {
-  controllerGetAllAuthors,
-  controllerGetAuthorById,
+  controllerGetAuthors,
+  controllerGetAuthor,
+  controllerCreateAuthor,
+  controllerUpdateAuthor,
+  controllerDeleteAuthor,
 };
